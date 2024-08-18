@@ -1,7 +1,10 @@
-import http from "http";
+import { createServer, IncomingMessage, ServerResponse } from "http";
 import cv from "@u4/opencv4nodejs";
 
-function requestHandler(_request, response) {
+export function rootHandler(
+  request: IncomingMessage,
+  response: ServerResponse
+) {
   const img = cv.imread("./lenna.jpg");
   const grayImg = img.bgrToGray();
   const classifier = new cv.CascadeClassifier(cv.HAAR_FRONTALFACE_ALT2);
@@ -17,7 +20,7 @@ function requestHandler(_request, response) {
       return;
     }
     cv.drawDetection(img, faceRect, {
-      color: new cv.Vec(255, 0, 0),
+      color: new cv.Vec3(255, 0, 0),
       segmentFraction: 4,
     });
   });
@@ -32,5 +35,30 @@ function requestHandler(_request, response) {
   response.end();
 }
 
-const server = http.createServer(requestHandler);
+function notFoundHandler(_request: IncomingMessage, response: ServerResponse) {
+  response.writeHead(404, { "Content-Type": "text/plain" });
+  response.end("Not Found");
+}
+
+export function requestHandler(
+  request: IncomingMessage,
+  response: ServerResponse
+) {
+  const { method, url } = request;
+
+  if (method !== "GET") {
+    response.writeHead(405, { "Content-Type": "text/plain" });
+    response.end("Method Not Allowed");
+    return;
+  }
+  switch (url) {
+    case "/":
+      rootHandler(request, response);
+      break;
+    default:
+      notFoundHandler(request, response);
+  }
+}
+
+const server = createServer(requestHandler);
 server.listen(8080);
