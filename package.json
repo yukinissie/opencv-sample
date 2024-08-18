@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/yukinissie/opencv-sample/issues"
   },
-  "homepage": "https://github.com/yukinissie/opencv-sample#readme"
+  "homepage": "https://github.com/yukinissie/opencv-sample#readme",
+  "dependencies": {
+    "@u4/opencv4nodejs": "^7.1.0"
+  }
 }
