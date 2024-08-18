@@ -1,0 +1,23 @@
+{
+  "name": "opencv-sample",
+  "version": "0.1.0",
+  "description": "OpenCV を Node.js プロジェクトで試すサンプルだよ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukinissie/opencv-sample.git"
+  },
+  "keywords": [
+    "opencv",
+    "nodejs"
+  ],
+  "author": "yukinissie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yukinissie/opencv-sample/issues"
+  },
+  "homepage": "https://github.com/yukinissie/opencv-sample#readme"
+}
