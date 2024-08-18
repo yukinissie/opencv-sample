@@ -2,7 +2,7 @@ import { createServer, IncomingMessage, ServerResponse } from "http";
 import cv from "@u4/opencv4nodejs";
 
 export function rootHandler(
-  request: IncomingMessage,
+  _request: IncomingMessage,
   response: ServerResponse
 ) {
   const img = cv.imread("./lenna.jpg");
@@ -35,7 +35,10 @@ export function rootHandler(
   response.end();
 }
 
-function notFoundHandler(_request: IncomingMessage, response: ServerResponse) {
+export function notFoundHandler(
+  _request: IncomingMessage,
+  response: ServerResponse
+) {
   response.writeHead(404, { "Content-Type": "text/plain" });
   response.end("Not Found");
 }

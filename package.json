@@ -8,7 +8,9 @@
     "dev": "tsx --watch src/index.ts",
     "build": "tsc",
     "start": "node dist/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.4.0",
+    "@vitest/coverage-v8": "^2.0.5",
     "tsx": "^4.17.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   }
 }
