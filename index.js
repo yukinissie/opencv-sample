@@ -1,4 +1,4 @@
-const cv = require("@u4/opencv4nodejs");
+import cv from "@u4/opencv4nodejs";
 
 const img = cv.imread("./lenna.jpg");
 

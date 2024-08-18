@@ -22,5 +22,6 @@
   "homepage": "https://github.com/yukinissie/opencv-sample#readme",
   "dependencies": {
     "@u4/opencv4nodejs": "^7.1.0"
-  }
+  },
+  "type": "module"
 }
