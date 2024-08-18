@@ -1,16 +1,13 @@
 {
   "name": "opencv-sample",
-  "type": "module",
   "version": "0.1.0",
   "description": "OpenCV を Node.js プロジェクトで試すサンプルだよ",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "tsx --watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/src/index.js",
-    "test": "vitest",
-    "test:ci": "vitest run",
-    "coverage": "vitest run --coverage"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -27,13 +24,20 @@
   },
   "homepage": "https://github.com/yukinissie/opencv-sample#readme",
   "dependencies": {
-    "@u4/opencv4nodejs": "^7.1.0"
+    "@u4/opencv4nodejs": "^7.1.0",
+    "fs": "^0.0.1-security",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/node": "^22.4.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@vitest/coverage-v8": "^2.0.5",
-    "tsx": "^4.17.0",
-    "typescript": "^5.5.4",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5",
     "vitest": "^2.0.5"
   }
 }
